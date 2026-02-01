@@ -6,3 +6,4 @@ pnmp-lock.yaml
 .DS_Store
 .vscode/
 .log
+gen/
