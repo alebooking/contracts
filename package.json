@@ -1,6 +1,6 @@
 {
   "name": "@alebooking/contracts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Protobug definitions and generated TypeScript types",
   "scripts": {
     "generate": "protoc -I=./proto ./proto/*.proto --ts_proto_out=./gen --ts_proto_opt=nestJs=true,package=omit"
