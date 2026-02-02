@@ -17,7 +17,7 @@ message SendOtpResponse {
 }
 
 message VerifyOtpRequest {
-  string identifirt = 1;
+  string identifier = 1;
   string type = 2;
   string code = 3;
 }
