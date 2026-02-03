@@ -25,6 +25,9 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      - name: Create ./gen folder
+        run: npm run pregenerate
+
       - name: Generate TS proto buf
         run: npm run generate
 
