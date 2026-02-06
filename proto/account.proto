@@ -12,8 +12,8 @@ message GetAccountRequest {
 
 message GetAccountResponse {
     string id = 1;
-    string phone = 2;
-    string email = 3;
+    optional string phone = 2;
+    optional string email = 3;
     bool is_phone_verfiied = 4;
     bool is_email_verified = 5;
     Role role = 6;
