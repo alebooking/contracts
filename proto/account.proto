@@ -8,10 +8,10 @@ service AccountService {
   rpc GetAccount (GetAccountRequest) returns (GetAccountResponse);
 
   rpc InitEmailChange (InitEmailChangeRequest) returns (google.protobuf.Empty);
-  rpc ConfigEmailChange (ConfirmEmailChangeRequest) returns (google.protobuf.Empty);
+  rpc ConfirmEmailChange (ConfirmEmailChangeRequest) returns (google.protobuf.Empty);
 
   rpc InitPhoneChange (InitPhoneChangeRequest) returns (google.protobuf.Empty);
-  rpc ConfigPhoneChange (ConfirmPhoneChangeRequest) returns (google.protobuf.Empty);
+  rpc ConfirmPhoneChange (ConfirmPhoneChangeRequest) returns (google.protobuf.Empty);
 }
 
 message GetAccountRequest {
