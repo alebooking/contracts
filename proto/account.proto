@@ -2,8 +2,16 @@ syntax = "proto3";
 
 package account.v1;
 
+import "google/protobuf/empty.proto";
+
 service AccountService {
   rpc GetAccount (GetAccountRequest) returns (GetAccountResponse);
+
+  rpc InitEmailChange (InitEmailChangeRequest) returns (google.protobuf.Empty);
+  rpc ConfigEmailChange (ConfirmEmailChangeRequest) returns (google.protobuf.Empty);
+
+  rpc InitPhoneChange (InitPhoneChangeRequest) returns (google.protobuf.Empty);
+  rpc ConfigPhoneChange (ConfirmPhoneChangeRequest) returns (google.protobuf.Empty);
 }
 
 message GetAccountRequest {
@@ -11,15 +19,37 @@ message GetAccountRequest {
 }
 
 message GetAccountResponse {
-    string id = 1;
-    optional string phone = 2;
-    optional string email = 3;
-    bool is_phone_verfiied = 4;
-    bool is_email_verified = 5;
-    Role role = 6;
+  string          id                = 1;
+  optional string phone             = 2;
+  optional string email             = 3;
+  bool            is_phone_verfiied = 4;
+  bool            is_email_verified = 5;
+  Role            role              = 6;
 }
 
 enum Role {
-    USER = 0;
-    ADMIN = 1;
+  USER  = 0;
+  ADMIN = 1;
+}
+
+message InitEmailChangeRequest {
+  string email   = 1;
+  string user_id = 2;
+}
+
+message ConfirmEmailChangeRequest {
+  string email   = 1;
+  string code    = 2;
+  string user_id = 3;
+}
+
+message InitPhoneChangeRequest {
+  string phone   = 1;
+  string user_id = 2;
+}
+
+message ConfirmPhoneChangeRequest {
+  string phone   = 1;
+  string code    = 2;
+  string user_id = 3;
 }
