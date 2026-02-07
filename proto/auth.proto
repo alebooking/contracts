@@ -46,16 +46,8 @@ message TelegramInitResponse {
   string url = 1;
 }
 
-message TelegramVerifyRequestQuery {
-  int32 id = 1;
-  string first_name = 2;
-  string last_name = 3;
-  string username = 4;
-  string photo_url = 5;
-  string hash = 7;
-}
 message TelegramVerifyRequest {
-  TelegramVerifyRequestQuery query = 1;
+  map<string, string> query = 1;
 }
 
 message TelegramVerifyResponse {
