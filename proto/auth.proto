@@ -10,7 +10,7 @@ service AuthService {
   rpc Refresh (RefreshRequest) returns (RefreshResponse);
 
   rpc TelegramInit (google.protobuf.Empty) returns (TelegramInitResponse);
-  rpc TelegramVerify (TelegramVerifyRequest) returns (TelegramVerifyResponse)
+  rpc TelegramVerify (TelegramVerifyRequest) returns (TelegramVerifyResponse);
 }
 
 message SendOtpRequest {
@@ -50,7 +50,7 @@ message TelegramVerifyRequest {
   map<string, string> query = 1;
 }
 
-message TelegramVerfiyResponse {
+message TelegramVerifyResponse {
   oneof result {
     string url = 1;
     VerifyOtpResponse tokens = 2;
