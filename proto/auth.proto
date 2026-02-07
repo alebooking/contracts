@@ -58,6 +58,7 @@ message TelegramVerifyRequestQuery {
 
 message TelegramVerifyRequest {
   TelegramVerifyRequestQuery query = 1;
+  map<string, string> query_raw = 2;
 }
 
 message TelegramVerifyResponse {
