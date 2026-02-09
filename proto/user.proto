@@ -7,6 +7,7 @@ import "google/protobuf/empty.proto";
 service UserService {
   rpc GetMe (GetMeRequest) returns (GetMeResponse);
   rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
+  rpc PatchUser (PatchUserRequest) returns (PatchUserResponse);
 }
 
 message GetMeRequest {
@@ -19,6 +20,16 @@ message GetMeResponse {
 
 message CreateUserRequest {
   string id = 1;
+}
+
+message PatchUserRequest {
+  string id = 1;
+
+  optional string name = 2;
+}
+
+message PatchUserResponse {
+  User user = 1;
 }
 
 message User {
