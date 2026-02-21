@@ -10,4 +10,4 @@ protoc -I ./proto \
     --go-grpc_opt=module=github.com/alebooking/contracts \
     ./proto/media.proto
 
-ecoh "Go generation complete."
+echo "Go generation complete."
