@@ -11,7 +11,7 @@ service MovieService {
 
 message ListMoviesRequest {
   string category = 1;
-  bool radnom = 2;
+  bool random = 2;
   int32 limit = 3;
 }
 
