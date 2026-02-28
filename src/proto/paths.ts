@@ -6,5 +6,6 @@ export const PROTO_PATH = {
     USER: join(__dirname, '../../proto/user.proto'),
     MEDIA: join(__dirname, '../../proto/media.proto'),
     MOVIE: join(__dirname, '../../proto/movie.proto'),
-    CATEGORY: join(__dirname, '../../proto/category.proto')
+    CATEGORY: join(__dirname, '../../proto/category.proto'),
+    THEATER: join(__dirname, '../../proto/theater.proto')
 } as const
