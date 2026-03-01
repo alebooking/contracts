@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package screening.v1;
+
+import "google/protobuf/timestamp.proto";
+
+service ScreeningService {
+  rpc CreateScreening(CreateScreeningRequest) returns (CreateScreeningResponse);
+  rpc GetScreenings(GetScreeningsRequest) returns (GetScreeningsResponse);
+  rpc GetScreeningByMovie(GetScreeningByMovieRequest) returns (GetScreeningByMovieResponse);
+  rpc GetScreening(GetScreeningRequest) returns (GetScreeningResponse);
+}
+
+message CreateScreeningRequest {
+  string                    movie_id = 1;
+  string                    hall_id  = 2;
+  google.protobuf.Timestamp start_at = 3;
+  google.protobuf.Timestamp end_at   = 4;
+}
+
+message CreateScreeningResponse {
+  Screening screening = 1;
+}
+
+message GetScreeningsRequest {
+  optional string                    theater_id = 1;
+  optional google.protobuf.Timestamp date       = 2;
+}
+
+message GetScreeningsResponse {
+  repeated Screening screenings = 1;
+}
+
+message GetScreeningByMovieRequest {
+  string                             movie_id   = 1;
+  optional string                    theater_id = 2;
+  optional google.protobuf.Timestamp date       = 3;
+}
+
+message GetScreeningByMovieResponse {
+  repeated Screening screenings = 1;
+}
+
+message GetScreeningRequest {
+  string id = 1;
+}
+
+message GetScreeningResponse {
+  Screening screening = 1;
+}
+
+message Screening {
+  string                    id       = 1;
+  google.protobuf.Timestamp start_at = 2;
+  google.protobuf.Timestamp end_at   = 3;
+
+  Theater           theater    = 4;
+  Hall              hall       = 5;
+  Movie             movie      = 6;
+  repeated SeatType seat_types = 7;
+}
+
+message Movie {
+  string id       = 1;
+  string title    = 2;
+  string slug     = 3;
+  int32  duration = 4;
+  string banner   = 5;
+}
+
+message Theater {
+  string id      = 1;
+  string name    = 2;
+  string address = 3;
+}
+
+message Hall {
+  string id   = 1;
+  string name = 2;
+}
+
+message SeatType {
+  string type  = 1;
+  int32  price = 2;
+}
