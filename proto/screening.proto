@@ -14,8 +14,8 @@ service ScreeningService {
 message CreateScreeningRequest {
   string                    movie_id = 1;
   string                    hall_id  = 2;
-  google.protobuf.Timestamp start_at = 3;
-  google.protobuf.Timestamp end_at   = 4;
+  string start_at = 3;
+  string end_at   = 4;
 }
 
 message CreateScreeningResponse {
@@ -24,7 +24,7 @@ message CreateScreeningResponse {
 
 message GetScreeningsRequest {
   optional string                    theater_id = 1;
-  optional google.protobuf.Timestamp date       = 2;
+  optional  string date       = 2;
 }
 
 message GetScreeningsResponse {
@@ -34,7 +34,7 @@ message GetScreeningsResponse {
 message GetScreeningByMovieRequest {
   string                             movie_id   = 1;
   optional string                    theater_id = 2;
-  optional google.protobuf.Timestamp date       = 3;
+  optional  string date       = 3;
 }
 
 message GetScreeningByMovieResponse {
@@ -51,8 +51,8 @@ message GetScreeningResponse {
 
 message Screening {
   string                    id       = 1;
-  google.protobuf.Timestamp start_at = 2;
-  google.protobuf.Timestamp end_at   = 3;
+  string start_at = 2;
+  string end_at   = 3;
 
   Theater           theater    = 4;
   Hall              hall       = 5;
